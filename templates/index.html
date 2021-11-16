@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>OverWatch Demo</title>
+
+	<!--
+		Shoutout to the billion websites which I stole ideas/code/structure from :D
+	-->
+
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/fontawesome-all.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/magnific-popup.css') }}"/>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='slick/slick.css') }}"/>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='slick/slick-theme.css') }}"/>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+	<script>
+		var renderPage = true;
+
+	if(navigator.userAgent.indexOf('MSIE')!==-1
+		|| navigator.appVersion.indexOf('Trident/') > 0){
+   		/* Microsoft Internet Explorer detected in. */
+   		alert("Please view this in a modern browser such as Chrome or Microsoft Edge.");
+   		renderPage = false;
+	}
+	</script>
+</head>
+
+<body>
+	<!-- Loader -->
+	<div id="loader-wrapper">
+		<div id="loader"></div>
+		<div class="loader-section section-left"></div>
+		<div class="loader-section section-right"></div>
+	</div>
+	
+	<!-- Page Content -->
+	<div class="container-fluid tm-main">
+		<div class="row tm-main-row">
+
+			<!-- Sidebar -->
+			<div id="tmSideBar" class="col-xl-3 col-lg-4 col-md-12 col-sm-12 sidebar">
+
+				<button id="tmMainNavToggle" class="menu-icon">&#9776;</button>
+
+				<div class="inner">
+					<nav id="tmMainNav" class="tm-main-nav">
+						<ul>
+							<li>
+								<a href="#intro" id="tmNavLink1" class="scrolly active" data-bg-img="bg.jpg" data-page="#tm-section-1">
+									<i class="fas fa-home tm-nav-fa-icon"></i>
+									<span>Introduction</span>
+								</a>
+							</li>
+							<li>
+								<a href="#company" id="tmNavLink2" class="scrolly" data-bg-img="bg.jpg" data-page="#tm-section-2">
+									<i class="fas fa-wrench tm-nav-fa-icon"></i>
+									<span>Demo 1</span>
+								</a>
+							</li>
+							<!-- For future stuff, this one is an image carousel lol
+							<li>
+								<a href="#products" id="tmNavLink3" class="scrolly" data-bg-img="constructive_bg_01.jpg" data-page="#tm-section-3" data-page-type="carousel">
+									<i class="fas fa-map tm-nav-fa-icon"></i>
+									<span>Our Products</span>
+								</a>
+							</li>
+							-->
+						</ul>
+					</nav>
+				</div>
+			</div>
+
+			<div class="col-xl-9 col-lg-8 col-md-12 col-sm-12 tm-content">
+
+					<!-- section 1 -->
+					<section id="tm-section-1" class="tm-section">
+						<div class="ml-auto">
+							<header class="mb-4"><h1 class="tm-text-shadow">Welcome to OverWatch</h1></header>
+							<p class="mb-5 tm-font-big">Security<br>Speed<br>Support<br>Serviceability<br>Swag</p>
+							<a href="#" class="btn tm-btn tm-font-big" data-nav-link="#tmNavLink2">Continue...</a> 
+						</div>
+					</section>
+
+					<!-- section 2 -->
+					<section id="tm-section-2" class="tm-section">						
+						<div class="row mb-4">
+							<header class="col-xl-12"><h2 class="tm-text-shadow">Echo: Company File Storage System</h2></header>
+							<p class="col-xl-12">Echo your files onto our company cloud storage systems <i>very safely and securely!</i></p>		
+						</div>
+						<div class="row mb-4">
+							<p class="col-xl-12">Add your file here!
+								<form>
+									<input type="file" id="malware" name="malware">
+									<button type="button" onclick="unhideMalware()">Submit</button>
+								</form>
+							</p>		
+						</div>
+						<div class="row">
+							<div class="col-sm-12 col-md-6 col-lg-12 col-xl-6 mb-4">
+								<div class="media tm-bg-transparent-black tm-border-white">
+									<i class="fas fa-file tm-icon-circled tm-icon-media"></i>
+									<div class="media-body">
+										<a style="text-decoration:none" href="/file1.txt" target="_blank">
+											<span class = "tm-bg-transparent-black-spanner"></span>
+										</a>
+										<h3>file1.txt</h3>
+									</div>
+								</div>
+							</div>	
+							<div class="col-sm-12 col-md-6 col-lg-12 col-xl-6 mb-4">
+								<div class="media tm-bg-transparent-black tm-border-white">
+									<i class="fas fa-file mr-4 tm-icon-circled tm-icon-media"></i>	
+									<div class="media-body">
+										<a style="text-decoration:none" href="/file2.db" target="_blank">
+											<span class = "tm-bg-transparent-black-spanner"></span>
+										</a>
+										<h3>file2.db</h3>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-12 col-md-6 col-lg-12 col-xl-6 mb-4">
+								<div class="media tm-bg-transparent-black tm-border-white">
+									<i class="fas fa-file mr-4 tm-icon-circled tm-icon-media"></i>
+									<div class="media-body">
+										<a style="text-decoration:none" href="/file3.bat" target="_blank">
+											<span class = "tm-bg-transparent-black-spanner"></span>
+										</a>
+										<h3>file3.bat</h3>
+									</div>
+								</div>
+							</div>
+							<div style="display:none" class="col-sm-12 col-md-6 col-lg-12 col-xl-6 mb-4" id="malware_div" >
+								<div class="media tm-bg-transparent-black tm-border-white">
+									<i class="fas fa-file mr-4 tm-icon-circled tm-icon-media"></i>
+									<div class="media-body">
+										<a style="text-decoration:none" href="/malware.dll" target="_blank">
+											<span class = "tm-bg-transparent-black-spanner"></span>
+										</a>
+										<h3>malware.dll</h3>
+									</div>
+								</div>
+							</div>			          		
+						</div>						               
+					</section>
+
+					<!-- section 3
+					<section id="tm-section-3" class="tm-section tm-section-carousel">
+						<div>
+							<header class="mb-4"><h2 class="tm-text-shadow">Random pictures they just had a carousel here</h2></header>		            
+							<div class="tm-img-container">
+								<div class="tm-img-slider">
+									<a href="{{ url_for('static', filename='img/gallery-img-01.jpg')}}" class="tm-slider-img"><img src="{{ url_for('static', filename='img/gallery-img-01.jpg')}}" alt="Image" class="img-fluid"></a>
+									<a href="{{ url_for('static', filename='img/gallery-img-02.jpg')}}" class="tm-slider-img"><img src="{{ url_for('static', filename='img/gallery-img-02.jpg')}}" alt="Image" class="img-fluid"></a>
+									<a href="{{ url_for('static', filename='img/gallery-img-03.jpg')}}" class="tm-slider-img"><img src="{{ url_for('static', filename='img/gallery-img-03.jpg')}}" alt="Image" class="img-fluid"></a>
+									<a href="{{ url_for('static', filename='img/gallery-img-04.jpg')}}" class="tm-slider-img"><img src="{{ url_for('static', filename='img/gallery-img-04.jpg')}}" alt="Image" class="img-fluid"></a>
+									<a href="{{ url_for('static', filename='img/gallery-img-05.jpg')}}" class="tm-slider-img"><img src="{{ url_for('static', filename='img/gallery-img-05.jpg')}}" alt="Image" class="img-fluid"></a>
+									<a href="{{ url_for('static', filename='img/gallery-img-06.jpg')}}" class="tm-slider-img"><img src="{{ url_for('static', filename='img/gallery-img-06.jpg')}}" alt="Image" class="img-fluid"></a>
+								</div>
+							</div>		            		          
+						</div>       		          	
+					</section>
+					End Section 3 -->				
+				</div>	<!-- .tm-content -->							
+				<footer class="footer-link">
+					<p class="tm-designers-text"><img class="fa-spin" src="../static/favicon.ico">Designed by the OverWatch Team</p>
+				</footer>
+			</div>	<!-- row -->			
+		</div>
+		<div id="preload-01"></div>
+
+		<script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.2.1.min.js')}}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.magnific-popup.min.js')}}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.backstretch.min.js')}}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='slick/slick.min.js')}}"></script> <!-- Slick Carousel -->
+
+		<script>
+
+		var sidebarVisible = false;
+		var currentPageID = "#tm-section-1";
+
+		// Setup Carousel
+		function setupCarousel() {
+
+			// If current page isn't Carousel page, don't do anything.
+			if($('#tm-section-3').css('display') == "none") {
+			}
+			else {	// If current page is Carousel page, set up the Carousel.
+
+				var slider = $('.tm-img-slider');
+				var windowWidth = $(window).width();
+
+				if (slider.hasClass('slick-initialized')) {
+					slider.slick('destroy');
+				}
+
+				if(windowWidth < 640) {
+					slider.slick({
+	              		dots: true,
+	              		infinite: false,
+	              		slidesToShow: 1,
+	              		slidesToScroll: 1
+	              	});
+				}
+				else if(windowWidth < 992) {
+					slider.slick({
+	              		dots: true,
+	              		infinite: false,
+	              		slidesToShow: 2,
+	              		slidesToScroll: 1
+	              	});
+				}
+				else {
+					// Slick carousel
+	              	slider.slick({
+	              		dots: true,
+	              		infinite: false,
+	              		slidesToShow: 3,
+	              		slidesToScroll: 2
+	              	});
+				}
+
+				// Init Magnific Popup
+				$('.tm-img-slider').magnificPopup({
+				  delegate: 'a', // child items selector, by clicking on it popup will open
+				  type: 'image',
+				  gallery: {enabled:true}
+				  // other options
+				});
+      		}
+  		}
+
+  		// Setup Nav
+  		function setupNav() {
+  			// Add Event Listener to each Nav item
+	     	$(".tm-main-nav a").click(function(e){
+	     		e.preventDefault();
+		    	
+		    	var currentNavItem = $(this);
+		    	changePage(currentNavItem);
+		    	
+		    	setupCarousel();
+		    	setupFooter();
+
+		    	// Hide the nav on mobile
+		    	$("#tmSideBar").removeClass("show");
+		    });	    
+  		}
+
+  		function changePage(currentNavItem) {
+  			// Update Nav items
+  			$(".tm-main-nav a").removeClass("active");
+     		currentNavItem.addClass("active");
+
+	    	$(currentPageID).hide();
+
+	    	// Show current page
+	    	currentPageID = currentNavItem.data("page");
+	    	$(currentPageID).fadeIn(1000);
+
+	    	// Change background image
+	    	var bgImg = currentNavItem.data("bgImg");
+	    	$.backstretch("static/img/" + bgImg);		    	
+  		}
+
+  		// Setup Nav Toggle Button
+  		function setupNavToggle() {
+
+			$("#tmMainNavToggle").on("click", function(){
+				$(".sidebar").toggleClass("show");
+			});
+  		}
+
+  		// If there is enough room, stick the footer at the bottom of page content.
+  		// If not, place it after the page content
+  		function setupFooter() {
+  			
+  			var padding = 100;
+  			var footerPadding = 40;
+  			var mainContent = $("section"+currentPageID);
+  			var mainContentHeight = mainContent.outerHeight(true);
+  			var footer = $(".footer-link");
+  			var footerHeight = footer.outerHeight(true);
+  			var totalPageHeight = mainContentHeight + footerHeight + footerPadding + padding;
+  			var windowHeight = $(window).height();		
+
+  			if(totalPageHeight > windowHeight){
+  				$(".tm-content").css("margin-bottom", footerHeight + footerPadding + "px");
+  				footer.css("bottom", footerHeight + "px");  			
+  			}
+  			else {
+  				$(".tm-content").css("margin-bottom", "0");
+  				footer.css("bottom", "20px");  				
+  			}  			
+  		}
+
+		function unhideMalware() {
+			document.getElementById("malware_div").style.display = "block"
+			$.getJSON('/send_log', function(data){});
+		}
+
+  		// Everything is loaded including images.
+      	$(window).on("load", function(){
+
+      		// Render the page on modern browser only.
+      		if(renderPage) {
+				// Remove loader
+		      	$('body').addClass('loaded');
+
+		      	// Page transition
+		      	var allPages = $(".tm-section");
+
+		      	// Handle click of "Continue", which changes to next page
+		      	// The link contains data-nav-link attribute, which holds the nav item ID
+		      	// Nav item ID is then used to access and trigger click on the corresponding nav item
+		      	var linkToAnotherPage = $("a.tm-btn[data-nav-link]");
+			    
+			    if(linkToAnotherPage != null) {
+			    	
+			    	linkToAnotherPage.on("click", function(){
+			    		var navItemToHighlight = linkToAnotherPage.data("navLink");
+			    		$("a" + navItemToHighlight).click();
+			    	});
+			    }
+		      	
+		      	// Hide all pages
+		      	allPages.hide();
+
+		      	$("#tm-section-1").fadeIn();
+
+		     	// Set up background first page
+		     	var bgImg = $("#tmNavLink1").data("bgImg");
+		     	
+		     	$.backstretch("static/img/" + bgImg, {fade: 500});
+
+		     	// Setup Carousel, Nav, and Nav Toggle
+			    setupCarousel();
+			    setupNav();
+			    setupNavToggle();
+			    setupFooter();
+
+			    // Resize Carousel upon window resize
+			    $(window).resize(function() {
+			    	setupCarousel();
+			    	setupFooter();
+			    });
+      		}	      	
+		});
+
+		</script>
+	</body>
+</html>
