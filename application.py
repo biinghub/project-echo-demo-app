@@ -4,10 +4,9 @@ import os
 import datetime
 import actions
 
-application = Flask(__name__)
+application = app = Flask(__name__)
 
 logger = actions.OverWatch_Logger()
-
 
 @application.route('/', methods = ['GET'])
 def home():
