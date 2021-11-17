@@ -1,7 +1,7 @@
 ---
 -   Alarm:
         AlarmName: Abnormal-File-Uploaded
-        AlarmDescription: Abnormal User Behaviour: File Upload
+        AlarmDescription: "Abnormal User Behaviour - File Upload"
         ComparisonOperator: GreaterThanOrEqualToThreshold
         EvaluationPeriods: 1
         DatapointsToAlarm: 1
@@ -12,7 +12,7 @@
         Namespace: CRITICAL
         ActionsEnabled: true
         AlarmActions:
-        -  arn:aws:lambda:ap-southeast-2:200033815729:function:stopBeanstalk
+        -   arn:aws:lambda:ap-southeast-2:200033815729:function:stopBeanstalk
     Metric:
         filterName: Abnormal-File-Upload-Filter
         filterPattern: CRITICAL - OverWatch Demo Echo - FILE UPLOAD
