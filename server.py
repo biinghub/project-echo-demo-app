@@ -22,7 +22,7 @@ def library_action():
 	print("ERERE")
 	user = "El Jeffe"
 	filename = "malware.dll"
-	logger.monitor_event("CRITICAL", "OverWatch Demo Echo", "FILE UPLOAD", f"User {user} has uploaded file: f{filename}")
+	logger.monitor_event("CRITICAL", "OverWatch Demo Echo", "FILE UPLOAD", f"User {user} has uploaded the file: f{filename}")
 	return "blah"
 
 @app.route('/favicon.ico', methods = ['GET'])
