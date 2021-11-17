@@ -44,4 +44,4 @@ def serve_file4():
 
 
 if __name__ == "__main__":
-	application.run(deug=True)
+	application.run(debug=True)
