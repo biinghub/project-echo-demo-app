@@ -12,8 +12,6 @@
         Namespace: CRITICAL
         ActionsEnabled: true
         AlarmActions:
-        -   arn:aws:lambda:ap-southeast-2:200033815729:function:stopBeanstalk
-        -   arn:aws:lambda:ap-southeast-2:200033815729:function:cwalarm-to-slack
         -   arn:aws:sns:ap-southeast-2:200033815729:Echo_Alarm
     Metric:
         filterName: Abnormal-File-Upload-Filter
