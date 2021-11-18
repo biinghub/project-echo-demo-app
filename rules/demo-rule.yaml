@@ -7,7 +7,7 @@
         DatapointsToAlarm: 1
         Statistic: Sum
         Threshold: 1
-        Period: 11
+        Period: 10
         MetricName: File Upload
         Namespace: CRITICAL
         ActionsEnabled: true
