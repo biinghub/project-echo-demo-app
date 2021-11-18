@@ -20,5 +20,5 @@
         metricTransformations:
         -   metricName: File Upload
             metricNamespace: CRITICAL
-            metricValue: "1"
+            metricValue: '1'
             unit: Count
