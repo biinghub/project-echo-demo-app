@@ -15,10 +15,9 @@ def home():
 ##### using library to send logs to CloudWatch ####
 @application.route('/send_log', methods = ['GET'])
 def library_action():
-	print("ERERE")
 	user = "El Jeffe"
 	filename = "malware.dll"
-	logger.monitor_event("CRITICAL", "OverWatch Demo Echo", "FILE UPLOAD", f"User {user} has uploaded the file: f{filename}")
+	logger.monitor_event("CRITICAL", "OverWatch Demo Echo", "FILE UPLOAD", f"User {user} has uploaded the file: {filename}")
 	return "blah"
 
 @application.route('/favicon.ico', methods = ['GET'])
