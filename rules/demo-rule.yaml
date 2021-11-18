@@ -9,6 +9,7 @@
         Threshold: 1
         Period: 10
         MetricName: File Upload
+        NameSpace: CRITICAL
         ActionsEnabled: true
         AlarmActions:
         -   arn:aws:sns:ap-southeast-2:200033815729:Echo_Alarm
