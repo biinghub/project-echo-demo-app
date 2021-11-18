@@ -15,7 +15,7 @@
         -   arn:aws:sns:ap-southeast-2:200033815729:Echo_Alarm
     Metric:
         filterName: Abnormal-File-Upload-Filter
-        filterPattern: CRITICAL - OverWatch Demo Echo - FILE UPLOAD
+        filterPattern: CRITICAL OverWatch Demo Echo FILE UPLOAD
         logGroupName: /var/log/demo-Overwatch
         metricTransformations:
         -   metricName: File Upload
