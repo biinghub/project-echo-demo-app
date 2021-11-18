@@ -25,7 +25,7 @@ def library_action():
 def favicon():
 	return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
-@application.route('/file1.txt', methods = ["GET"])
+@application.route('/b3ff_jez0s_secr3t_s4uce.txt', methods = ["GET"])
 def serve_file1():
 	return send_from_directory(os.path.join(serve.root_path, 'static'), 'list/file1.txt')
 
