@@ -27,7 +27,7 @@ def favicon():
 
 @application.route('/b3ff_jez0s_secr3t_s4uce.txt', methods = ["GET"])
 def serve_file1():
-	return send_from_directory(os.path.join(serve.root_path, 'static'), 'list/file1.txt')
+	return send_from_directory(os.path.join(serve.root_path, 'static'), 'list/b3ff_jez0s_secr3t_s4uce.txt')
 
 @application.route('/file2.db', methods = ["GET"])
 def serve_file2():
